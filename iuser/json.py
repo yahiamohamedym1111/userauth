@@ -1,4 +1,4 @@
-from .models import Check,UserRegister,CompanyRegister
+from .models import CheckUser,CheckCompany,UserRegister,CompanyRegister
 from rest_framework import serializers 
 from django.contrib.auth.models import User
 
@@ -7,9 +7,14 @@ from django.contrib.auth.models import User
 #auth
 
 
-class  jsonCheck(serializers.ModelSerializer):
+class  jsonCheckUser(serializers.ModelSerializer):
     class Meta:
-        model = Check
+        model = CheckUser
+        fields = "__all__"
+
+class  jsonCheckCompany(serializers.ModelSerializer):
+    class Meta:
+        model = CheckCompany
         fields = "__all__"
 
 

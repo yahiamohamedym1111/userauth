@@ -1,19 +1,24 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from .json import jsonCheck,jsonUserRegister,jsonCompanyRegister
+from .json import jsonCheckUser,jsonCheckCompany,jsonUserRegister,jsonCompanyRegister
 from rest_framework.views import APIView
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Check,UserRegister,CompanyRegister
+from .models import  CheckUser,CheckCompany,UserRegister,CompanyRegister
 from rest_framework import viewsets
 # Create your views here.
 
 
 #auth
 
-class check(viewsets.ModelViewSet):
-    queryset = Check.objects.all()
-    serializer_class = jsonCheck
+class checkUser(viewsets.ModelViewSet):
+    queryset = CheckUser.objects.all()
+    serializer_class = jsonCheckUser
+
+class checkCompany(viewsets.ModelViewSet):
+    queryset = CheckCompany.objects.all()
+    serializer_class = jsonCheckCompany
+
 
 
 class userRegister(viewsets.ModelViewSet):
